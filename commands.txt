@@ -1,0 +1,9 @@
+aws eks --region eu-west-1 update-kubeconfig --name my-eks-cluster
+
+#Commands for wordpress pod in order to directly connect wordpress and database 
+cd /var/www/html
+mv wp-config-sample.php wp-config.php
+sed "s#database_name_here#$db_name#g" -i wp-config.php
+sed "s#username_here#$db_user#g" -i wp-config.php
+sed "s#password_here#$db_password#g" -i wp-config.php
+sed "s#localhost#$db_host#g" -i wp-config.php
